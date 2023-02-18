@@ -66,7 +66,7 @@ const JobPostForm = ({ loadJobPostData }) => {
     const uploadFile = () => {
       const storageRef = ref(storage, file.name);
 
-      const uploadTask = uploadBytesResumable(storageRef, file5);
+      const uploadTask = uploadBytesResumable(storageRef, file);
 
       uploadTask.on(
         "state_changed",
@@ -91,7 +91,7 @@ const JobPostForm = ({ loadJobPostData }) => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
-            setForm((prev) => ({ ...prev, imgprev: [downloadUrl] }));
+            setForm((prev) => ({ ...prev, img: [downloadUrl] }));
           });
         }
       );
