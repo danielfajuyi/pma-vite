@@ -27,6 +27,8 @@
     display: flex;
     width: 540px;
     align-items: center;
+
+    margin: 0 auto;
     border-radius: 1.8rem;
     gap: 1rem;
 
@@ -143,14 +145,14 @@
   }
 }
 
-@media screen and (max-width: 1200px) and (min-width: 980px) {
+@media screen and (max-width: 1441px) and (min-width: 980px) {
   .job__card__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
     .job__card {
       display: flex;
-      width: 97%;
+      width: 90%;
     }
   }
 }
@@ -191,7 +193,7 @@
   }
 }
 
-@media screen and (max-width: 520px) and (min-width: 438px) {
+@media screen and (max-width: 580px) and (min-width: 438px) {
   .job__card__container {
     display: flex;
     flex-wrap: wrap;

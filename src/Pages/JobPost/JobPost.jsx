@@ -50,7 +50,7 @@ const JobPost = () => {
           }
         ></Route>
 
-        <Route path="post/:id" element={<Details />} />
+        <Route path="post/:id" element={<Details job={job} />} />
       </Routes>
     </>
   );

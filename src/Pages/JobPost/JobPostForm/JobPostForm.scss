@@ -1,3 +1,47 @@
+.booking-sections {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  position: relative;
+  z-index: 34;
+  color: rgb(89, 89, 89);
+  background-color: rgb(243, 242, 241);
+  font-family: "Poppins";
+
+  .book-forms {
+    width: 60%;
+    margin-bottom: 3rem;
+    .form-header {
+      display: flex;
+      justify-content: space-between;
+
+      h1 {
+        color: rgb(45, 45, 45);
+        font-weight: 700;
+        font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial,
+          "Liberation Sans", Roboto, Noto, sans-serif;
+        font-size: 1.75rem;
+        line-height: 1.25;
+        margin: 0px 0px 0.5rem;
+        max-width: 350px;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+    }
+
+    .form-desc1 {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+}
+
+.booking-sections::backdrop {
+  background-color: rgb(255, 255, 255);
+}
+
 .bookform-texts {
   box-sizing: border-box;
   -webkit-box-flex: 1;
@@ -119,43 +163,29 @@ select {
   }
 }
 
-.booking-sections {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  color: rgb(89, 89, 89);
-  background-color: rgb(243, 242, 241);
-  font-family: "Poppins";
+.button-wrapper {
+  button {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    position: relative;
+    margin-top: 0.9rem;
+    margin-bottom: 0.3rem;
+    padding: 11px 18px !important;
+    background: var(--dim-black);
+    border-radius: 6px;
 
-  .book-forms {
-    width: 60%;
-    .form-header {
-      display: flex;
-      justify-content: space-between;
-
-      h1 {
-        color: rgb(45, 45, 45);
-        font-weight: 700;
-        font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial,
-          "Liberation Sans", Roboto, Noto, sans-serif;
-        font-size: 1.75rem;
-        line-height: 1.25;
-        margin: 0px 0px 0.5rem;
-        max-width: 350px;
-        overflow-wrap: break-word;
-        word-break: break-word;
-      }
-    }
-
-    .form-desc1 {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+    &:hover {
+      background: var(--dimpink);
+      color: var(--Light-color);
+      transform: translateY(-10px);
     }
   }
 }
-
-.booking-sections::backdrop {
-  background-color: rgb(255, 255, 255);
+@media screen and (max-width: 980px) {
+  .booking-sections {
+    .book-forms {
+      width: 90%;
+    }
+  }
 }

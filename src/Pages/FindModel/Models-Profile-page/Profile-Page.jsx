@@ -8,6 +8,8 @@ import ModelVideo from "./Model-Video";
 import ModelPolaroid from "./Model-Polaroid";
 import BookingForm from "./BookingForm";
 import { useState, useEffect } from "react";
+import { FaRegArrowAltCircleLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function ProfilePage({ item, postMsg }) {
   const [activeSection, setActiveSection] = useState("Photos");
@@ -16,6 +18,12 @@ function ProfilePage({ item, postMsg }) {
   const [deviceSize, setDeviceSize] = useState(window.innerWidth);
   const [activeDisplay, setActiveDisplay] = useState("");
   const [viewAll, setViewAll] = useState(false);
+
+  const Navigate = useNavigate();
+
+  const handleNavigate = () => {
+    Navigate("/find-model");
+  };
 
   // setting device size
   function handleResize() {
@@ -88,8 +96,11 @@ function ProfilePage({ item, postMsg }) {
         postMsg={postMsg}
       />
       <div className="profile-footer">
-        <small>Copyright &copy; 2022 PREMIUM MODEL</small>
-        <span>{`(${deviceSize})`}</span>
+        {/* <small>Copyright &copy; 2022 PREMIUM MODEL</small>
+        <span>{`(${deviceSize})`}</span> */}
+        <span onClick={handleNavigate}>
+          <FaRegArrowAltCircleLeft />
+        </span>
       </div>
     </>
   );

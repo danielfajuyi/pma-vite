@@ -1,13 +1,18 @@
 import { React, useState, useEffect } from "react";
 import "./Details.scss";
+import "../JobListing/Listing.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { BsArrow90DegLeft } from "react-icons/bs";
 import { MdLocationOn } from "react-icons/md";
 import { FaArrowLeft, FaClock, FaRegClock } from "react-icons/fa";
 import { AiFillDollarCircle } from "react-icons/ai";
+import Line from "../../../Components/Line/line";
+import RecentJobs from "../Component/RecentJobs/RecentJobs";
+import JobImageSlider from "../Component/JobImageSlider/JobImageSlider";
+import Footer from "../../Home/Layout/FooterSection/Footer/footer";
 
-function Details() {
+function Details({ job }) {
   const [jobdetail, setJobDetails] = useState();
   const navigate = useNavigate();
 
@@ -25,15 +30,17 @@ function Details() {
 
   return (
     <>
-      <section className="Jobdetail-containter">
+      <Line className="jobs-line" />
+      <section className="Jobdetail-container mtop-2 container ">
         {jobdetail && (
           <div className="jobdetail-view">
-            <header className="top">
+            <header>
               <div className="titlebar">
                 <span onClick={HandleNavigate}>
                   <FaArrowLeft />
+                  <span> Job Listing</span>
                 </span>
-                <h2>{jobdetail.title}</h2>
+                <h1>{jobdetail.title}</h1>
               </div>
 
               <div className="desc-status">
@@ -51,83 +58,106 @@ function Details() {
               </div>
 
               <div className="desc-bar">
-                <div>
-                  <div>
+                <div className="info-wrapper">
+                  <div className="info-box">
                     <MdLocationOn />
                     <span> {`${jobdetail.city}, ${jobdetail.country}`} </span>
                   </div>
                 </div>
 
-                <div>
-                  <div>
+                <div className="info-wrapper">
+                  <div className="info-box">
                     <FaRegClock />
                     <span> casting ends {jobdetail.date} </span>
                   </div>
                 </div>
 
-                <div>
-                  <div>
+                <div className="info-wrapper">
+                  <div className="info-box">
                     <AiFillDollarCircle />
-                    <span> {jobdetail.price} </span>
+                    <span> {jobdetail.status} </span>
                   </div>
                 </div>
               </div>
 
-              <div>
-                <button>Apply Now</button>
+              <div className="button-wrapper">
+                <button className="btn-shadow ">Apply Now</button>
               </div>
             </header>
 
             <main>
               <article className="left">
-                <div className="top">
-                  <span>Image reference for this job</span>
-                  <div></div>
+                <div className="top jobdetail-box">
+                  <div>
+                    <h4>Image reference for this job</h4>
+                  </div>
+                  <JobImageSlider job={job} />
                 </div>
 
-                <div className="bottom">
-                  <span>Requirements</span>
-                  <span>{jobdetail.desc}</span>
+                <div className="bottom jobdetail-box">
+                  <div>
+                    <h4>Requirements</h4>
+                  </div>
+                  <span style={{ fontWeight: "500" }}>{jobdetail.desc}</span>
                 </div>
               </article>
 
-              <article className="right">
-                <div className="topsection">
-                  <h4>Preference</h4>
-
+              <article className="right ">
+                <div className="top jobdetail-box">
                   <div>
-                    <span>Gender</span>
-                    <span>{jobdetail.gender}</span>
+                    <h4>Preference</h4>
+                  </div>
+
+                  <div className="info-wrapper ">
+                    <div className="info-box">
+                      <span>Gender</span>
+                      <span>{jobdetail.gender}</span>
+                    </div>
+
+                    <div className="info-box">
+                      <span>Age Grade</span>
+                      <span>{jobdetail.age}</span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="bottomsection">
-                  <h4>Payment</h4>
-
+                <div className="bottom jobdetail-box">
                   <div>
-                    <div>
-                      <span>Status</span>
+                    <h4>Status</h4>
+                  </div>
+
+                  <div className="info-wrapper ">
+                    <div className="info-box">
+                      <span>Payment</span>
                       <span>{jobdetail.status}</span>
                     </div>
 
-                    <div>
+                    <div className="info-box">
                       <span>Online or Offline job</span>
                       <span>{jobdetail.jobtype}</span>
+                    </div>
+
+                    <div className="info-box">
+                      <span>Shoot location</span>
+                      <span>{jobdetail.location}</span>
                     </div>
                   </div>
                 </div>
               </article>
             </main>
 
-            <div className="">
-              <button>Apply Now</button>
+            <div className="button-section mtop-2 ">
+              <button className="btn-shadow">Apply Now</button>
             </div>
           </div>
         )}
-        <footer>
+        <footer className="mtop-3">
           <h3>Related Job Post</h3>
         </footer>
+        <RecentJobs job={job} />
       </section>
+
+      <Footer />
     </>
   );
 }

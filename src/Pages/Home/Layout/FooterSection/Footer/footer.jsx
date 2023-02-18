@@ -1,6 +1,8 @@
 import React from "react";
 import "./footer.css";
 
+import FooterIcon from "../../../../../assets/footer-icon.png";
+
 import Logo from "../../../../../Components/Logo/logo";
 import Phone from "@iconscout/react-unicons/icons/uil-phone-times";
 import Whatsapp from "@iconscout/react-unicons/icons/uil-whatsapp";
@@ -21,11 +23,7 @@ const Footer = () => {
             <div id="footer">
               <div className="footer">
                 <div className="footer-heading">
-                  <img
-                    src="./assets/main-assets/footer-icon.png"
-                    alt="footericon"
-                    height="42px"
-                  />
+                  <img src={FooterIcon} alt="footericon" height="42px" />
                   <h2>Company</h2>
                 </div>
                 <ul>
@@ -49,11 +47,7 @@ const Footer = () => {
 
               <div className="footer">
                 <div className="footer-heading">
-                  <img
-                    src="./assets/main-assets/footer-icon.png"
-                    alt="footericon"
-                    height="42px"
-                  />
+                  <img src={FooterIcon} alt="footericon" height="42px" />
                   <h2>Privacy</h2>
                 </div>
                 <ul>
@@ -71,11 +65,7 @@ const Footer = () => {
               </div>
               <div className="footer replaced-footer">
                 <div className="footer-heading">
-                  <img
-                    src="./assets/main-assets/footer-icon.png"
-                    alt="footericon"
-                    height="42px"
-                  />
+                  <img src={FooterIcon} alt="footericon" height="42px" />
                   <h2>Help</h2>
                 </div>
                 <ul>
@@ -104,10 +94,7 @@ const Footer = () => {
 
               <div className="footer replaced-footer">
                 <div className="footer-heading">
-                  <img
-                    src="./assets/main-assets/footer-icon.png"
-                    alt="footericon"
-                  />
+                  <img src={FooterIcon} alt="footericon" />
                   <h2>Download app</h2>
                 </div>
                 <ul>
@@ -220,7 +207,7 @@ const Footer = () => {
                 <div className="text">
                   <h3>Email</h3>
                   <p>
-                    premiummodelsng
+                    premiummodelsapp
                     <br />
                     @gmail.com
                   </p>

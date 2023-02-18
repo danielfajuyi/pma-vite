@@ -6,8 +6,10 @@ import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import "./JobPostForm.scss";
+import Footer from "../../Home/Layout/FooterSection/Footer/footer";
 import countrydata from "../../../data/Country-State-Data.json";
 const jobapi = "http://localhost:4000/postjob";
+import Line from "../../../Components/Line/line";
 
 import {
   statusOption,
@@ -37,10 +39,6 @@ const initialState = {
 const JobPostForm = ({ loadJobPostData }) => {
   const [form, setForm] = useState(initialState);
   const [file, setFile] = useState(null);
-  const [file2, setFile2] = useState(null);
-  const [file3, setFile3] = useState(null);
-  const [file4, setFile4] = useState(null);
-  const [file5, setFile5] = useState(null);
 
   // eslint-disable-next-line
   const [progress, setProgress] = useState(null);
@@ -69,154 +67,6 @@ const JobPostForm = ({ loadJobPostData }) => {
     const uploadFile = () => {
       const storageRef = ref(storage, file.name);
 
-      const uploadTask = uploadBytesResumable(storageRef, file);
-
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
-          setProgress(progress);
-          switch (snapshot.state) {
-            case "Paused":
-              console.log("Upload is paused");
-              break;
-            case "running":
-              console.log("Upload is running");
-              break;
-            default:
-              break;
-          }
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
-            setForm((prev) => ({ ...prev, img: [downloadUrl] }));
-          });
-        }
-      );
-    };
-    file && uploadFile();
-  }, [file]);
-
-  useEffect(() => {
-    const uploadFile = () => {
-      const storageRef = ref(storage, file2.name);
-
-      const uploadTask = uploadBytesResumable(storageRef, file2);
-
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
-          setProgress(progress);
-          switch (snapshot.state) {
-            case "Paused":
-              console.log("Upload is paused");
-              break;
-            case "running":
-              console.log("Upload is running");
-              break;
-            default:
-              break;
-          }
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
-            setForm((prev) => ({ ...prev, imgprev1: [downloadUrl] }));
-          });
-        }
-      );
-    };
-    file2 && uploadFile();
-  }, [file2]);
-
-  useEffect(() => {
-    const uploadFile = () => {
-      const storageRef = ref(storage, file3.name);
-
-      const uploadTask = uploadBytesResumable(storageRef, file3);
-
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
-          setProgress(progress);
-          switch (snapshot.state) {
-            case "Paused":
-              console.log("Upload is paused");
-              break;
-            case "running":
-              console.log("Upload is running");
-              break;
-            default:
-              break;
-          }
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
-            setForm((prev) => ({ ...prev, imgprev2: [downloadUrl] }));
-          });
-        }
-      );
-    };
-    file3 && uploadFile();
-  }, [file]);
-
-  useEffect(() => {
-    const uploadFile = () => {
-      const storageRef = ref(storage, file4.name);
-
-      const uploadTask = uploadBytesResumable(storageRef, file4);
-
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
-          setProgress(progress);
-          switch (snapshot.state) {
-            case "Paused":
-              console.log("Upload is paused");
-              break;
-            case "running":
-              console.log("Upload is running");
-              break;
-            default:
-              break;
-          }
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
-            setForm((prev) => ({ ...prev, imgprev3: [downloadUrl] }));
-          });
-        }
-      );
-    };
-    file4 && uploadFile();
-  }, [file4]);
-
-  useEffect(() => {
-    const uploadFile = () => {
-      const storageRef = ref(storage, file5.name);
-
       const uploadTask = uploadBytesResumable(storageRef, file5);
 
       uploadTask.on(
@@ -242,32 +92,16 @@ const JobPostForm = ({ loadJobPostData }) => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
-            setForm((prev) => ({ ...prev, imgprev4: [downloadUrl] }));
+            setForm((prev) => ({ ...prev, imgprev: [downloadUrl] }));
           });
         }
       );
     };
-    file5 && uploadFile();
-  }, [file5]);
+    file && uploadFile();
+  }, [file]);
 
   const onFileChange = (e) => {
     setFile(e.target.files[0]);
-  };
-
-  const onFileChange2 = (e) => {
-    setFile2(e.target.files[0]);
-  };
-
-  const onFileChange3 = (e) => {
-    setFile3(e.target.files[0]);
-  };
-
-  const onFileChange4 = (e) => {
-    setFile4(e.target.files[0]);
-  };
-
-  const onFileChange5 = (e) => {
-    setFile5(e.target.files[0]);
   };
 
   const onInputChange = (e) => {
@@ -580,17 +414,16 @@ const JobPostForm = ({ loadJobPostData }) => {
           <div className="form-box form-mtop">
             <label>Upload Photo</label>
             <input type="file" onChange={onFileChange} />
-            <input type="file" onChange={onFileChange2} />
-            <input type="file" onChange={onFileChange3} />
-            <input type="file" onChange={onFileChange4} />
-            <input type="file" onChange={onFileChange5} />
             <p>You can add up to 5 images to represent the mood of your post</p>
-            <div className="form-mtop">
-              <button type="submit">Post</button>
+            <div className="form-mtop button-wrapper ">
+              <button type="submit" className="btn-shadow">
+                Post
+              </button>
             </div>
           </div>
         </form>
       </section>
+      <Footer />
     </>
   );
 };
