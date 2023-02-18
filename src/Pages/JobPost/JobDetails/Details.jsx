@@ -17,7 +17,7 @@ function Details({ job }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/postjob/${id}`).then((res) => {
+    axios.get(`https://formapi-4wry.onrender.com/postjob/${id}`).then((res) => {
       setJobDetails(res.data);
     });
   }, []);
@@ -91,7 +91,7 @@ function Details({ job }) {
                   <div>
                     <h4>Image reference for this job</h4>
                   </div>
-                  <JobImageSlider job={job} />
+                  <JobImageSlider jobdetail={jobdetail} />
                 </div>
 
                 <div className="bottom jobdetail-box">

@@ -8,7 +8,7 @@ import img3 from "./Images/img3.jpg";
 import img4 from "./Images/img4.jpg";
 import img5 from "./Images/img5.jpg";
 
-const JobImageSlider = () => {
+const JobImageSlider = ({ jobdetail }) => {
   let settings = {
     infinite: true,
     speed: 400,
@@ -36,6 +36,10 @@ const JobImageSlider = () => {
     <div className="postjobimg-container">
       <div className="postjobimg-wrapper ">
         <Slider {...settings}>
+          <div>
+            <img src={jobdetail.img} alt="job-img" />
+          </div>
+
           <div>
             <img src={img2} alt="job-img" />
           </div>

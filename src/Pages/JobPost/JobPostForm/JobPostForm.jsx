@@ -8,8 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./JobPostForm.scss";
 import Footer from "../../Home/Layout/FooterSection/Footer/footer";
 import countrydata from "../../../data/Country-State-Data.json";
-const jobapi = "http://localhost:4000/postjob";
-import Line from "../../../Components/Line/line";
+const jobapi = "https://formapi-4wry.onrender.com/postjob";
 
 import {
   statusOption,

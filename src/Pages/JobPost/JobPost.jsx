@@ -6,7 +6,7 @@ import JobPostForm from "./JobPostForm/JobPostForm";
 import Listing from "./JobListing/Listing";
 import Details from "./JobDetails/Details";
 const JobPost = () => {
-  const jobapi = "http://localhost:4000/postjob";
+  const jobapi = "https://formapi-4wry.onrender.com/postjob";
   const [job, setJob] = useState([]);
   const [toggleForm, setToggleForm] = useState(false);
 

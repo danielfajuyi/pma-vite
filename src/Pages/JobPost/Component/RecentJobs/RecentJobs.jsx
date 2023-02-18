@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 import "./RecentJobs.scss";
 
 const RecentJobs = ({ job }) => {
+  function handleRefresh() {
+    setTimeout(() => window.location.reload(), 500);
+  }
   return (
     <>
       <main className="job__card__container mtop container">
@@ -61,7 +64,7 @@ const RecentJobs = ({ job }) => {
                         </div>
                       </div>
                     </div>
-                    <Link to={`/jobpost/post/${id}`}>
+                    <Link to={`/jobpost/post/${id}`} onClick={handleRefresh}>
                       <button className="more-btn  linkBtn btn-shadow">
                         More Details
                       </button>
